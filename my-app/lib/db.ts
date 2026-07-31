@@ -5,7 +5,7 @@ export default const connectdb= async():Promise<void>=>{
         return
     }
     try {
-        await mongoose.connect()
+        await mongoose.connect(MONGODB_KEY)
         console.log("Database Connected")
     } catch (error) {
         console.log("Connection error",error)
