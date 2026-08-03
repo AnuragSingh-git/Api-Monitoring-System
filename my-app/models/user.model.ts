@@ -3,7 +3,9 @@ import mongoose, { Schema, Document, Model } from "mongoose";
 export interface IUser extends Document {
   name: string;
   email: string;
-  age: number;
+  password: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 const UserSchema = new Schema<IUser>(
@@ -11,14 +13,18 @@ const UserSchema = new Schema<IUser>(
     name: {
       type: String,
       required: true,
+      trim: true,
     },
+
     email: {
       type: String,
       required: true,
       unique: true,
+      lowercase: true,
     },
-    age: {
-      type: Number,
+
+    password: {
+      type: String,
       required: true,
     },
   },
@@ -27,7 +33,5 @@ const UserSchema = new Schema<IUser>(
   }
 );
 
-const User: Model<IUser> =
+export default (mongoose.models.User as Model<IUser>) ||
   mongoose.model<IUser>("User", UserSchema);
-
-export default User;
