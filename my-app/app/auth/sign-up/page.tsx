@@ -34,7 +34,7 @@ export default function SignUpPage() {
 
     console.log("Account created:", data);
 
-    router.push("/");
+    router.push("/dashboard");
   }
 
   return (
