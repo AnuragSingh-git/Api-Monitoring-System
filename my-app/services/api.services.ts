@@ -1,6 +1,15 @@
 import api from "../models/api.model";
 
-export const createApi = async (apiData: any) => {
+interface CreateApiInput {
+  name: string;
+  url: string;
+  method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
+  interval: number;
+  headers?: Record<string, string>;
+  body?: Record<string, unknown>;
+}
+
+export const createApi = async (apiData: CreateApiInput) => {
   try {
     const ApiData= await api.create(apiData);
     return ApiData;
@@ -30,7 +39,7 @@ export const getApiById = async (apiId: string) => {
   }
 };
 
-export const updateApi = async (apiId: string, updateData: any) => {
+export const updateApi = async (apiId: string, updateData: Partial<CreateApiInput>) => {
   try {
     const updatedApi = await api.findByIdAndUpdate(apiId, updateData, { new: true });
     return updatedApi;

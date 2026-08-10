@@ -1,20 +1,16 @@
 "use server";
 
-import { apiService } from "@/services/api.service";
+import { createApi } from "../../services/api.services";
 
-export async function createApiAction(data: unknown) {
+export async function createApiAction(data: any) {
   try {
-    const validatedData = apiSchema.parse(data);
-
-    const api = await apiService.create(validatedData);
+    const api = await createApi(data);
 
     return {
       success: true,
-      data: api,
+      data: JSON.parse(JSON.stringify(api)),
     };
   } catch (error) {
-    console.error("Create API Error:", error);
-
     return {
       success: false,
       error: "Failed to create API",
