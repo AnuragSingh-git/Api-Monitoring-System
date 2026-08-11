@@ -8,7 +8,7 @@ export async function createApiAction(data: any) {
 
     return {
       success: true,
-      data: JSON.parse(JSON.stringify(api)),
+      data: api,
     };
   } catch (error) {
     return {
