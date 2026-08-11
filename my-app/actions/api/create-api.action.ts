@@ -1,8 +1,9 @@
 "use server";
 
 import { createApi } from "../../services/api.services";
+import { CreateApiInput } from "../../validations/api.interface";
 
-export async function createApiAction(data: any) {
+export async function createApiAction(data: CreateApiInput) {
   try {
     const api = await createApi(data);
 
