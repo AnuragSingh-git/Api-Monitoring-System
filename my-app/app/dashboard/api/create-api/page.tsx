@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createApiAction } from "@/actions/api/create-api.action";
+import { createApiAction } from "../../../../actions/api/create-api.action";
+import { HttpMethod } from "../../../../validations/api.interface";
 
 export default function ApiForm() {
   const router = useRouter();
@@ -12,7 +13,7 @@ export default function ApiForm() {
   const [formData, setFormData] = useState({
     name: "",
     url: "",
-    method: "GET",
+    method: "GET" as HttpMethod,
     interval: 60,
     headers: "",
     body: "",
@@ -30,6 +31,8 @@ export default function ApiForm() {
       [name]:
         name === "interval"
           ? Number(value)
+          : name === "method"
+          ? (value as HttpMethod)
           : value,
     }));
   };
