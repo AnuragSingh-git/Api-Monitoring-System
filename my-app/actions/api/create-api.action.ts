@@ -9,7 +9,7 @@ export async function createApiAction(data: CreateApiInput) {
 
     return {
       success: true,
-      data: api,
+      data: JSON.parse(JSON.stringify(api)),
     };
   } catch (error) {
     return {
