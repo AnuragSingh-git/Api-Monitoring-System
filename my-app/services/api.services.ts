@@ -1,4 +1,7 @@
 import api from "../models/api.model";
+import connectdb from "@/lib/db";
+
+connectdb();
 
 interface CreateApiInput {
   name: string;
