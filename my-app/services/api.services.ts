@@ -14,7 +14,7 @@ export const createApi = async (apiData: CreateApiInput) => {
     const userId = "64b8e3f5c9e1f2a1b2c3d4e5"; // Replace with actual user ID retrieval logic
     apiData = { ...apiData, userId };
     const ApiData= await api.create(apiData);
-    return ApiData.toObject;
+    return ApiData.toObject();
   } catch (error) {
     console.error("Error creating API:", error);
     throw error;
