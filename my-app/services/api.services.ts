@@ -1,5 +1,6 @@
 import api from "../models/api.model";
 import connectdb from "@/lib/db";
+import {getSession} from "better-auth"
 
 connectdb();
 
@@ -14,7 +15,11 @@ interface CreateApiInput {
 
 export const createApi = async (apiData: CreateApiInput) => {
   try {
-    const userId = "64b8e3f5c9e1f2a1b2c3d4e5"; // Replace with actual user ID retrieval logic
+    const session = await getsession(); // Replace with actual session retrieval logic
+    if (!session) {
+      throw new Error("User not authenticated");
+    }
+    const userId = session.user._id; // Replace with actual user ID retrieval logic
     apiData = { ...apiData, userId };
     const ApiData= await api.create(apiData);
     return ApiData.toObject();
