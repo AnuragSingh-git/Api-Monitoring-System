@@ -34,7 +34,7 @@ export const getAllApis = async () => {
     const apis = await api.find();
     return apis;
   } catch (error) {
-    console.error("Error fetching APIs:", error);
+    console.error("Error fetching API:", error);
     throw error;
   }
 };
