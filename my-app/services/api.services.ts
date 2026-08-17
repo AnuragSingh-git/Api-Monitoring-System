@@ -1,6 +1,6 @@
 import api from "../models/api.model";
 import connectdb from "@/lib/db";
-import auth from "../lib/auth";
+import {auth} from "../lib/auth";
 
 connectdb();
 
@@ -15,7 +15,7 @@ interface CreateApiInput {
 
 export const createApi = async (apiData: CreateApiInput) => {
   try {
-    const session = await auth.getSession(); // Replace with actual session retrieval logic
+    const session = await auth.api.getSession();
     if (!session) {
       throw new Error("User not authenticated");
     }
