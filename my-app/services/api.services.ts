@@ -19,7 +19,7 @@ export const createApi = async (apiData: CreateApiInput) => {
     if (!session) {
       throw new Error("User not authenticated");
     }
-    const userId = session.user._id; // Replace with actual user ID retrieval logic
+    const userId = session.user._id;
     apiData = { ...apiData, userId };
     const ApiData= await api.create(apiData);
     return ApiData.toObject();
