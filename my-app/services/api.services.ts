@@ -54,7 +54,7 @@ export const updateApi = async (apiId: string, updateData: Partial<CreateApiInpu
     const updatedApi = await api.findByIdAndUpdate(apiId, updateData, { new: true });
     return updatedApi;
   } catch (error) {
-    console.error("Error updating API:", error);
+    console.error("Error updating API", error);
     throw error;
   }
 };
