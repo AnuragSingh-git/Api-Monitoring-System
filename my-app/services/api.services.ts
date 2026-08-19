@@ -44,7 +44,7 @@ export const getApiById = async (apiId: string) => {
     const apiData = await api.findById(apiId);
     return apiData;
   } catch (error) {
-    console.error("Error fetching API by ID:", error);
+    console.error("Error fetching API by ID", error);
     throw error;
   }
 };
