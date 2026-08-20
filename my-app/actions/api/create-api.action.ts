@@ -14,7 +14,7 @@ export async function createApiAction(data: CreateApiInput) {
   } catch (error) {
     return {
       success: false,
-      error: "Failed to create API",
+      error: "Failed to create APIs",
     };
   }
 }
