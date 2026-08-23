@@ -1,5 +1,5 @@
 "use server"
 
-export const deleteapiaction=async ()=>{
-    
+export const deleteapiaction=async (api:objectid)=>{
+
 }
