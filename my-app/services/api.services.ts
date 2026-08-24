@@ -5,6 +5,7 @@ import {auth} from "../lib/auth";
 connectdb();
 
 interface CreateApiInput {
+  userId: string;
   name: string;
   url: string;
   method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
@@ -19,7 +20,7 @@ export const createApi = async (apiData: CreateApiInput) => {
     if (!session) {
       throw new Error("User not authenticated");
     }
-    const userId = session.user._id;
+    const userId = session.user.id;
     apiData = { ...apiData, userId };
     const ApiData= await api.create(apiData);
     return ApiData.toObject();
