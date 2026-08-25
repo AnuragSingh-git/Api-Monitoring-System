@@ -14,7 +14,7 @@ interface CreateApiInput {
   body?: Record<string, unknown>;
 }
 
-export const createApi = async (apiData: CreateApiInput) => {
+export const createApi = async (apiData: Partial<CreateApiInput>) => {
   try {
     const session = await auth.api.getSession();
     if (!session) {
