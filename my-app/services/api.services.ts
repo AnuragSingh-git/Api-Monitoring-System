@@ -35,7 +35,9 @@ export const createApi = async (apiData: Partial<CreateApiInput>) => {
 
 export const getAllApis = async () => {
   try {
-    const session = await auth.api.getSession();
+    const session = await auth.api.getSession({
+      headers: await headers(),
+    });
     if (!session) {
       throw new Error("User not authenticated");
     }
@@ -49,7 +51,9 @@ export const getAllApis = async () => {
 
 export const getApiById = async (apiId: string) => {
   try {
-    const session = await auth.api.getSession();
+    const session = await auth.api.getSession({
+      headers: await headers(),
+    });
     if (!session) {
       throw new Error("User not authenticated");
     }
@@ -66,7 +70,9 @@ export const getApiById = async (apiId: string) => {
 
 export const updateApi = async (apiId: string, updateData: Partial<CreateApiInput>) => {
   try {
-    const session = await auth.api.getSession();
+    const session = await auth.api.getSession({
+      headers: await headers(),
+    });
     if (!session) {
       throw new Error("User not authenticated");
     }
@@ -80,7 +86,9 @@ export const updateApi = async (apiId: string, updateData: Partial<CreateApiInpu
 
 export const deleteApi = async (apiId: string) => {
   try {
-    const session = await auth.api.getSession();
+    const session = await auth.api.getSession({
+      headers: await headers(),
+    });
     if (!session) {
       throw new Error("User not authenticated");
     }
