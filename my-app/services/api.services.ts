@@ -32,7 +32,11 @@ export const createApi = async (apiData: Partial<CreateApiInput>) => {
 
 export const getAllApis = async () => {
   try {
-    const apis = await api.find();
+    const session = await auth.api.getSession();
+    if (!session) {
+      throw new Error("User not authenticated");
+    }
+    const apis = await api.find({ userId: session.user.id }).lean();
     return apis;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -42,7 +46,14 @@ export const getAllApis = async () => {
 
 export const getApiById = async (apiId: string) => {
   try {
+    const session = await auth.api.getSession();
+    if (!session) {
+      throw new Error("User not authenticated");
+    }
     const apiData = await api.findById(apiId);
+    if (!apiData) {
+      throw new Error("API not found");
+    }
     return apiData;
   } catch (error) {
     console.error("Error fetching API by ID", error);
@@ -52,6 +63,10 @@ export const getApiById = async (apiId: string) => {
 
 export const updateApi = async (apiId: string, updateData: Partial<CreateApiInput>) => {
   try {
+    const session = await auth.api.getSession();
+    if (!session) {
+      throw new Error("User not authenticated");
+    }
     const updatedApi = await api.findByIdAndUpdate(apiId, updateData, { new: true });
     return updatedApi;
   } catch (error) {
@@ -62,6 +77,10 @@ export const updateApi = async (apiId: string, updateData: Partial<CreateApiInpu
 
 export const deleteApi = async (apiId: string) => {
   try {
+    const session = await auth.api.getSession();
+    if (!session) {
+      throw new Error("User not authenticated");
+    }
     await api.findByIdAndDelete(apiId);
   } catch (error) {
     console.error("Error deleting API:", error);
