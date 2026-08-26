@@ -1,4 +1,4 @@
-import { getDashboardAction } from "@/actions/dashboard/get-dashboard.action";
+//import { getDashboardAction } from "@/actions/dashboard/get-dashboard.action";
 
 export default async function DashboardPage() {
   const result = await getDashboardAction();
