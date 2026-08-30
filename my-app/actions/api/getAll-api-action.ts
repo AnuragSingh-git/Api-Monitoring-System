@@ -14,7 +14,7 @@ export const getAllApiAction = async () => {
     console.error("Get All APIs action error:", error);
     return {
       success: false,
-      message: "Failed to get APIs",
+      message: "Failed to get API",
     };
   }
 };
