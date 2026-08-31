@@ -1,6 +1,6 @@
 "use server";
 
-import { getDashboardData } from "@/services/dashboard.services";
+import { getDashboardData } from "../../services/dashboard.service";
 
 export const getDashboardAction = async () => {
   try {
