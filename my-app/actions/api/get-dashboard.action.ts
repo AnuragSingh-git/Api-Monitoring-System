@@ -11,7 +11,7 @@ export const getDashboardAction = async () => {
       data,
     };
   } catch (error) {
-    console.error("Dashboard action error:", error);
+    console.error("Dashboard actions error:", error);
 
     return {
       success: false,
