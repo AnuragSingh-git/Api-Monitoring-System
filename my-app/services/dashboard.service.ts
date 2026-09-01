@@ -1,5 +1,5 @@
 import Api from "@/models/api.model";
-import MonitorLog from "@/models/monitor-log.model";
+import MonitorLog from "/models/monitor-log.model";
 
 export const getDashboardData = async () => {
   // Total APIs
