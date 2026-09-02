@@ -7,7 +7,7 @@ export const getDashboardAction = async () => {
     const data = await getDashboardData();
 
     return {
-      success: true,
+      success: false,
       data,
     };
   } catch (error) {
