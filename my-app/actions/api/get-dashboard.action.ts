@@ -15,7 +15,7 @@ export const getDashboardAction = async () => {
 
     return {
       success: false,
-      message: "Failed to loads dashboard",
+      message: "Failed to load dashboard",
     };
   }
 };
