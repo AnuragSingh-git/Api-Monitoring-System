@@ -7,7 +7,7 @@ export default async function DashboardPage() {
     return (
       <div className="p-6">
         <h1 className="text-xl font-semibold">
-          Failed to load dashboard
+          Failed to load dashboard data
         </h1>
 
         <p className="text-red-500">
