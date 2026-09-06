@@ -7,7 +7,7 @@ export const getAllApiAction = async () => {
   try {
     const apis = await getAllApis();
     return {
-      success: true,
+      success: false,
       data: apis,
     };
   } catch (error) {
