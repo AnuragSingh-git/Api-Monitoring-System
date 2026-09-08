@@ -6,6 +6,7 @@ export default function Home() {
   return (
     <div>Homepage check
       <p>This is a simple homepage.</p>
+      <p>Welcome to the API Monitoring System!</p>
     </div>
   );
 }
