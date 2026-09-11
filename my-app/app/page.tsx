@@ -5,7 +5,6 @@ export default function Home() {
   connectdb()
   return (
     <div>
-      Homepage
     </div>
   );
 }
