@@ -1,4 +1,4 @@
-import Api from "@/models/api.model";
+import Api from "../models/api.model";
 import MonitorLog from "/models/monitor-log.model";
 
 export const getDashboardData = async () => {
