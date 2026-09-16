@@ -3,7 +3,7 @@ import { getDashboardAction } from "../../actions/api/get-dashboard.action";
 export default async function DashboardPage() {
   const result = await getDashboardAction();
 
-  if (!result.success) {
+  if (!result.success || !result.data) {
     return (
       <div className="p-6">
         <h1 className="text-xl font-semibold">
