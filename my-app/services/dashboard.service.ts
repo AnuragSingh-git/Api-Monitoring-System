@@ -75,10 +75,33 @@ export const getDashboardData = async () => {
     .limit(10)
     .lean();
 
+    const chartLogs = await MonitorLog.find({
+  status: "UP",
+  responseTime: { $exists: true },
+})
+  .sort({ checkedAt: -1 })
+  .limit(20)
+  .lean();
+
+  const chartData = chartLogs
+  .reverse()
+  .map((log) => ({
+    time: new Date(log.checkedAt).toLocaleTimeString(
+      [],
+      {
+        hour: "2-digit",
+        minute: "2-digit",
+      }
+    ),
+
+    responseTime: log.responseTime ?? 0,
+  }));
+
   return {
     totalApis,
     upApis,
     downApis,
+    chartData,
     averageResponseTime,
     uptime,
     recentLogs: JSON.parse(
