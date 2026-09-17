@@ -1,4 +1,5 @@
 import { getDashboardAction } from "../../actions/api/get-dashboard.action";
+import ApiAnalyticsChart from "../../components/charts/ApiAnalyticsChart";
 
 export default async function DashboardPage() {
   const result = await getDashboardAction();
@@ -65,6 +66,10 @@ export default async function DashboardPage() {
             value={`${data.uptime}%`}
           />
 
+        </div>
+
+        <div className="mt-8">
+          <ApiAnalyticsChart data={data.chartData} />
         </div>
 
 

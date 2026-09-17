@@ -75,17 +75,17 @@ export const getDashboardData = async () => {
     .limit(10)
     .lean();
 
-    const chartLogs = await MonitorLog.find({
-  status: "UP",
-  responseTime: { $exists: true },
-})
-  .sort({ checkedAt: -1 })
-  .limit(20)
-  .lean();
+  const chartLogs = await MonitorLog.find({
+    status: "UP",
+    responseTime: { $exists: true },
+    })
+    .sort({ checkedAt: -1 })
+    .limit(20)
+    .lean();
 
   const chartData = chartLogs
-  .reverse()
-  .map((log) => ({
+    .reverse()
+    .map((log) => ({
     time: new Date(log.checkedAt).toLocaleTimeString(
       [],
       {
