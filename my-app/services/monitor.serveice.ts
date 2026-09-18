@@ -73,3 +73,16 @@ export const checkApi = async (apiId: string) => {
     };
   }
 };
+
+export const checkAllApis = async (userId: string) => {
+  const apis = await Api.find({
+    userId,
+    isActive: true,
+  }).lean();
+
+  const results = await Promise.all(
+    apis.map((api) => checkApi(api._id.toString()))
+  );
+
+  return results;
+};
