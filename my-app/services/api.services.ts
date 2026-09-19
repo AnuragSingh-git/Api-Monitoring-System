@@ -15,15 +15,8 @@ interface CreateApiInput {
   body?: Record<string, unknown>;
 }
 
-export const createApi = async (apiData: Partial<CreateApiInput>) => {
+export const createApi = async (apiData: Partial<CreateApiInput>, userId: string) => {
   try {
-    const session = await auth.api.getSession({
-      headers: await headers(),
-    });
-    if (!session) {
-      throw new Error("User not authenticated");
-    }
-    const userId = session.user.id;
     apiData = { ...apiData, userId };
     const ApiData= await api.create(apiData);
     return ApiData.toObject();

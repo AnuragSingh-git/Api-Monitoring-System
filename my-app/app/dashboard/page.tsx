@@ -1,5 +1,6 @@
 import { getDashboardAction } from "../../actions/api/get-dashboard.action";
 import ApiAnalyticsChart from "../../components/charts/ApiAnalyticsChart";
+import CheckAllApisButton from "../../components/api/checkAllApiButton";
 
 export default async function DashboardPage() {
   const result = await getDashboardAction();
@@ -34,6 +35,10 @@ export default async function DashboardPage() {
           <p className="mt-1 text-gray-500">
             Monitor your APIs and track their performance.
           </p>
+        </div>
+
+        <div className="mt-6">
+          <CheckAllApisButton />
         </div>
 
 
