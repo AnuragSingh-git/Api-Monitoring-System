@@ -1,9 +1,9 @@
 import Api from "../models/api.model";
 import MonitorLog from "../models/log.model";
 
-export const getDashboardData = async () => {
+export const getDashboardData = async (userId: string) => {
   // Total APIs
-  const totalApis = await Api.countDocuments();
+  const totalApis = await Api.countDocuments({userId:userId});
 
   // Get all APIs
   const apis = await Api.find()
