@@ -6,7 +6,6 @@ export default function Home() {
   return (
     <div>hi
       <p>Welcome to the home page!</p>
-      <p>button</p>
     </div>
   );
 }
