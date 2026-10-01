@@ -25,7 +25,7 @@ export default function CheckAllApisButton() {
     const response = await checkAllApisAction();
 
     if (!response.success) {
-      setMessage(response.message ?? "Failed to check APIs.");
+      setMessage(response.message ?? "Failed to check API");
       setLoading(false);
       return;
     }
