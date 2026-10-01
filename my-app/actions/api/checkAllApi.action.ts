@@ -6,7 +6,6 @@ import { checkAllApis } from "../../services/monitor.serveice";
 
 export const checkAllApisAction = async () => {
   try {
-    // Get logged-in user
     const session = await auth.api.getSession({
       headers: await headers(),
     });
@@ -20,7 +19,6 @@ export const checkAllApisAction = async () => {
 
     const userId = session.user.id;
 
-    // Check all APIs of this user
     const results = await checkAllApis(userId);
 
     return {
