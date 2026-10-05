@@ -13,9 +13,6 @@ export default function Home() {
           This is a simple API monitoring system built with Next.js and Tailwind CSS.
         </p>
       </div>
-      <div className="mt-6">
-        <CheckAllApisButton />
-      </div>
     </div>
   );
 }
