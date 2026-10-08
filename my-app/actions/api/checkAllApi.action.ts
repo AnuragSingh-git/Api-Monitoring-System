@@ -26,11 +26,11 @@ export const checkAllApisAction = async () => {
       data: results,
     };
   } catch (error) {
-    console.error("Check all APIs error:", error);
+    console.error("Check all APIs error", error);
 
     return {
       success: false,
-      message: "Failed to check APIs",
+      message: "Failed to check API",
     };
   }
 };
