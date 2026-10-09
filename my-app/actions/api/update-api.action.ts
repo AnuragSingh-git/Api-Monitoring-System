@@ -11,7 +11,7 @@ export const updateApiAction = async (apiId: string, apiData: Partial<CreateApiI
             data: response,
         };
     } catch (error) {
-        console.error("Update API action error", error);
+        console.error("Update API action error:", error);
         return {
             success: false,
             message: "Failed to update API",
