@@ -4,7 +4,7 @@ export default function Home() {
   connectdb();
 
   return (
-    <div>
+    <div>hi
     </div>
   );
 }
