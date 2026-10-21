@@ -21,7 +21,7 @@ export const createApi = async (apiData: Partial<CreateApiInput>, userId: string
     const ApiData= await api.create(apiData);
     return ApiData.toObject();
   } catch (error) {
-    console.error("Error creating APIs:", error);
+    console.error("Error creating API:", error);
     throw error;
   }
 };
